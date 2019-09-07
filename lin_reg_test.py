@@ -39,11 +39,9 @@ lin_reg_x = []
 lin_reg_y = []
 
 for x in x_data:
-    print(x)
     lin_reg_x.append(linear_function(mx, x, bx))
 
 for y in y_data:
-    print(y)
     lin_reg_y.append(linear_function(my, y, by))
 
 # Plotting results
@@ -51,6 +49,7 @@ plt.plot(x_data, y_data, "o",
     x_data, lin_reg_x,
     y_data, lin_reg_y)
 
+plt.title('Linear Regression')
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.show()
