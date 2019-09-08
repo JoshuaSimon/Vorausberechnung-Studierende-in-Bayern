@@ -53,20 +53,24 @@ def lin_predict(x, x_data, y_data):
     
     return x_predict, y_predict
 
-def normalize_l2 (x):
-    """ Rerturns a normalized copy of
-    an array x. Uses L2 vector norm 
-    for normalization. 
+def normalize_minmax(x, x_min, x_max, min_r, max_r):
+    """ Normalizing and scaling given data
+    in an array x to the range of min_r 
+    to max_r. x_max and x_min are maximum
+    and minium of the total data x and do
+    not need to be in x itself. 
     """
-    l2 = sqrt(sum(i**2 for i in x))
-    return [i/l2 for i in x]
+    x_s = [(i - x_min)/(x_max - x_min) for i in x]
+    return [i * (max_r - min_r) + min_r for i in x_s]
 
-def de_normalize_l2 (x_norm, x):
-    """ Transforms a normalized vector
-    back to its un-normalized form. 
+def de_normalize_minmax(x_scale, x, x_min, x_max, min_r, max_r):
+    """ Transforms a min-max normalized and 
+    scaled vector back to its un-normalized
+    form.
     """
-    l2 = sqrt(sum(i**2 for i in x))
-    return [i*l2 for i in x_norm]
+    x_t = [((i - min_r)/(max_r - min_r)) for i in x_scale]
+    x_inv = [(i*(x_max - x_min) + x_min) for i in x_t]
+    return x_inv
 
 
 # Read the data form the input file and name the columns. 
@@ -108,33 +112,14 @@ prediction_year = [i for i in range(2017,2030)]
 predictions = lin_predict(prediction_year, year_vec, all_students_vec)[0]
 
 
-# Plot the evolution of the number of students over time.
-plt.plot(year_vec, all_students_vec, "-b", label='given data')
-plt.plot(year_vec, lin_reg_x, "-r", label='linear regression')
-plt.plot(prediction_year, predictions, "--r", label="linear prediction")
-
-plt.title('Students at Bavarian universities since 1998')
-plt.xlabel('Year')
-plt.ylabel('Number of students')
-plt.legend()
-plt.show()
-
-
 # Tensorflow model for better prediction
 # Prediction range
 future_year = [i for i in range(2017,2030)]
 
 # Normalize data
-all_students_norm = normalize_l2(all_students_vec)
-year_norm = normalize_l2(year_vec)
-future_year_norm = normalize_l2(future_year)
-
-
-print(future_year)
-print()
-print(future_year_norm)
-print()
-print(de_normalize_l2(future_year_norm, future_year))
+all_students_norm = normalize_minmax(all_students_vec, 0, 500000, 0, 1)
+year_norm = normalize_minmax(year_vec, 1990, 2050, 0, 1)
+future_year_norm = normalize_minmax(future_year, 1990, 2050, 0, 1)
 
 # Setting up machine learning model with keras
 model = keras.Sequential()
@@ -143,14 +128,24 @@ model.add(keras.layers.Dense(1, activation="sigmoid"))
 model.compile(optimizer='rmsprop', loss='mse', metrics=['mse'])
 
 # Train the model
-#model.fit(year_norm, all_students_norm, epochs=10) 
-model.fit(year_vec, all_students_vec, epochs=10) 
+model.fit(year_norm, all_students_norm, epochs=100) 
 
 # Calculate predictions
 tf_predictions = model.predict(future_year_norm)
+tf_predictions_transpose = np.array(de_normalize_minmax(tf_predictions, all_students_vec, 0, 500000, 0, 1))
 #print(tf_predictions)
-#print(de_normalize_l2(tf_predictions, all_students_vec))
+#print(tf_predictions_transpose.flatten())
 
-#print(model.predict(normalize_l2([2020])))
-#print(model.predict(normalize_l2([2030])))
-print(model.predict([2020]))
+
+# Plot the evolution of the number of students over time.
+plt.plot(year_vec, all_students_vec, "-b", label='given data')
+plt.plot(year_vec, lin_reg_x, "-r", label='linear regression')
+plt.plot(prediction_year, predictions, "--r", label="linear prediction")
+plt.plot(future_year, tf_predictions_transpose.flatten(), ":g", label="tensorflow")
+
+plt.title('Students at Bavarian universities since 1998')
+plt.xlabel('Year')
+plt.ylabel('Number of students')
+plt.legend()
+plt.show()
+
