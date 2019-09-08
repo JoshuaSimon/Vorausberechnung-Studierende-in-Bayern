@@ -7,3 +7,4 @@ https://www.statistikdaten.bayern.de/genesis/online?sequenz=statistikTabellen&se
 Mehr zum Thema Hochschulstatisitk in Bayern findet sich hier:
 https://www.statistik.bayern.de/statistik/bildung_soziales/hochschulen/index.html
 
+![linear_prediction.png](https://github.com/JoshuaSimon/Vorausberechnung-Studierende-in-Bayern/blob/master/plots/linear_prediction.png)
