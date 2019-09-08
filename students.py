@@ -38,12 +38,18 @@ def linear_function(m, x, b):
     return m * x + b
 
 def lin_predict(x, x_data, y_data):
-    """ Predicts one value of a given data set
+    """ Predicts a value for a given data set
     with an linear realation of X and Y.
     """
-    mx, my, bx, by = linear_regression(year_vec, all_students_vec)
-    x_predict = linear_function(mx, x, bx)
-    y_predict = linear_function(my, x, by)
+    mx, my, bx, by = linear_regression(x_data, y_data)
+
+    x_predict = []
+    y_predict = []
+
+    for i in x:
+        x_predict.append(linear_function(mx, i, bx))
+        y_predict.append(linear_function(my, i, by))
+    
     return x_predict, y_predict
 
 # Read the data form the input file and name the columns. 
@@ -81,20 +87,19 @@ for y in all_students_vec:
     lin_reg_y.append(linear_function(my, y, by))
 
 # Prediction of the number of students in the future with linear regresssion.
-prediction_year = []
-predictions = []
-for i in range(2018,2030):
-    prediction_year.append(i)
-    predictions.append(lin_predict(i, year_vec, all_students_vec)[0])
+prediction_year = [i for i in range(2017,2030)]
+predictions = lin_predict(prediction_year, year_vec, all_students_vec)[0]
+
 
 # Plot the evolution of the number of students over time.
-plt.plot(year_vec, all_students_vec,
-    year_vec, lin_reg_x, 
-    prediction_year, predictions, "o")
+plt.plot(year_vec, all_students_vec, "-b", label='given data')
+plt.plot(year_vec, lin_reg_x, "-r", label='linear regression')
+plt.plot(prediction_year, predictions, "--r", label="linear prediction")
 
 plt.title('Students at Bavarian universities since 1995')
 plt.xlabel('Year')
 plt.ylabel('Number of students')
+plt.legend()
 plt.show()
 
 
