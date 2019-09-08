@@ -2,6 +2,7 @@
 
 import pandas as pd 
 import numpy as np 
+from math import sqrt
 import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow import keras
@@ -52,6 +53,22 @@ def lin_predict(x, x_data, y_data):
     
     return x_predict, y_predict
 
+def normalize_l2 (x):
+    """ Rerturns a normalized copy of
+    an array x. Uses L2 vector norm 
+    for normalization. 
+    """
+    l2 = sqrt(sum(i**2 for i in x))
+    return [i/l2 for i in x]
+
+def de_normalize_l2 (x_norm, x):
+    """ Transforms a normalized vector
+    back to its un-normalized form. 
+    """
+    l2 = sqrt(sum(i**2 for i in x))
+    return [i*l2 for i in x_norm]
+
+
 # Read the data form the input file and name the columns. 
 student_data = pd.read_csv("student_data.txt", sep=" ", header=None)
 student_data.columns = ["semester", "year", "all", "all_male", "all_female", 
@@ -96,7 +113,7 @@ plt.plot(year_vec, all_students_vec, "-b", label='given data')
 plt.plot(year_vec, lin_reg_x, "-r", label='linear regression')
 plt.plot(prediction_year, predictions, "--r", label="linear prediction")
 
-plt.title('Students at Bavarian universities since 1995')
+plt.title('Students at Bavarian universities since 1998')
 plt.xlabel('Year')
 plt.ylabel('Number of students')
 plt.legend()
@@ -104,35 +121,36 @@ plt.show()
 
 
 # Tensorflow model for better prediction
+# Prediction range
+future_year = [i for i in range(2017,2030)]
 
 # Normalize data
-all_students_norm = tf.keras.utils.normalize(
-    all_students_vec,
-    axis=-1,
-    order=2
-)
+all_students_norm = normalize_l2(all_students_vec)
+year_norm = normalize_l2(year_vec)
+future_year_norm = normalize_l2(future_year)
 
-year_norm = tf.keras.utils.normalize(
-    year_vec,
-    axis=-1,
-    order=2
-)
 
-future_year = range(2018,2038)
-future_year_norm = tf.keras.utils.normalize(
-    future_year,
-    axis=-1,
-    order=2
-)
+print(future_year)
+print()
+print(future_year_norm)
+print()
+print(de_normalize_l2(future_year_norm, future_year))
 
-print(all_students_norm)
-
+# Setting up machine learning model with keras
 model = keras.Sequential()
-model.add(keras.layers.Dense(1024, input_dim=20, activation="relu"))
+model.add(keras.layers.Dense(1024, input_dim=1, activation="relu"))
 model.add(keras.layers.Dense(1, activation="sigmoid"))
 model.compile(optimizer='rmsprop', loss='mse', metrics=['mse'])
 
-model.fit(year_vec, all_students_norm, epochs=100) 
+# Train the model
+#model.fit(year_norm, all_students_norm, epochs=10) 
+model.fit(year_vec, all_students_vec, epochs=10) 
 
-#print(model.predict([future_year_norm]))
+# Calculate predictions
+tf_predictions = model.predict(future_year_norm)
+#print(tf_predictions)
+#print(de_normalize_l2(tf_predictions, all_students_vec))
+
+#print(model.predict(normalize_l2([2020])))
+#print(model.predict(normalize_l2([2030])))
 print(model.predict([2020]))
