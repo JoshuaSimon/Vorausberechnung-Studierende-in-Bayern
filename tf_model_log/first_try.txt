@@ -1,0 +1,216 @@
+Epoch 1/100
+20/20 [==============================] - 0s 5ms/sample - loss: 0.0194 - mean_squared_error: 0.0194
+Epoch 2/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0159 - mean_squared_error: 0.0159
+Epoch 3/100
+20/20 [==============================] - 0s 49us/sample - loss: 0.0143 - mean_squared_error: 0.0143
+Epoch 4/100
+20/20 [==============================] - 0s 50us/sample - loss: 0.0134 - mean_squared_error: 0.0134
+Epoch 5/100
+20/20 [==============================] - 0s 200us/sample - loss: 0.0127 - mean_squared_error: 0.0127
+Epoch 6/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0123 - mean_squared_error: 0.0123
+Epoch 7/100
+20/20 [==============================] - 0s 198us/sample - loss: 0.0120 - mean_squared_error: 0.0120
+Epoch 8/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0118 - mean_squared_error: 0.0118
+Epoch 9/100
+20/20 [==============================] - 0s 50us/sample - loss: 0.0116 - mean_squared_error: 0.0116
+Epoch 10/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0114 - mean_squared_error: 0.0114
+Epoch 11/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0113 - mean_squared_error: 0.0113
+Epoch 12/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0112 - mean_squared_error: 0.0112
+Epoch 13/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0110 - mean_squared_error: 0.0110
+Epoch 14/100
+20/20 [==============================] - 0s 200us/sample - loss: 0.0109 - mean_squared_error: 0.0109
+Epoch 15/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0107 - mean_squared_error: 0.0107
+Epoch 16/100
+20/20 [==============================] - 0s 50us/sample - loss: 0.0106 - mean_squared_error: 0.0106
+Epoch 17/100
+20/20 [==============================] - 0s 50us/sample - loss: 0.0105 - mean_squared_error: 0.0105
+Epoch 18/100
+20/20 [==============================] - 0s 200us/sample - loss: 0.0103 - mean_squared_error: 0.0103
+Epoch 19/100
+20/20 [==============================] - 0s 50us/sample - loss: 0.0102 - mean_squared_error: 0.0102
+Epoch 20/100
+20/20 [==============================] - 0s 200us/sample - loss: 0.0101 - mean_squared_error: 0.0101
+Epoch 21/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0099 - mean_squared_error: 0.0099
+Epoch 22/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0098 - mean_squared_error: 0.0098
+Epoch 23/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0097 - mean_squared_error: 0.0097
+Epoch 24/100
+20/20 [==============================] - 0s 200us/sample - loss: 0.0095 - mean_squared_error: 0.0095
+Epoch 25/100
+20/20 [==============================] - 0s 50us/sample - loss: 0.0094 - mean_squared_error: 0.0094
+Epoch 26/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0092 - mean_squared_error: 0.0092
+Epoch 27/100
+20/20 [==============================] - 0s 50us/sample - loss: 0.0091 - mean_squared_error: 0.0091
+Epoch 28/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0089 - mean_squared_error: 0.0089
+Epoch 29/100
+20/20 [==============================] - 0s 50us/sample - loss: 0.0088 - mean_squared_error: 0.0088
+Epoch 30/100
+20/20 [==============================] - 0s 199us/sample - loss: 0.0086 - mean_squared_error: 0.0086
+Epoch 31/100
+20/20 [==============================] - 0s 50us/sample - loss: 0.0084 - mean_squared_error: 0.0084
+Epoch 32/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0083 - mean_squared_error: 0.0083
+Epoch 33/100
+20/20 [==============================] - 0s 50us/sample - loss: 0.0081 - mean_squared_error: 0.0081
+Epoch 34/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0080 - mean_squared_error: 0.0080
+Epoch 35/100
+20/20 [==============================] - 0s 49us/sample - loss: 0.0078 - mean_squared_error: 0.0078
+Epoch 36/100
+20/20 [==============================] - 0s 50us/sample - loss: 0.0076 - mean_squared_error: 0.0076
+Epoch 37/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0075 - mean_squared_error: 0.0075
+Epoch 38/100
+20/20 [==============================] - 0s 201us/sample - loss: 0.0073 - mean_squared_error: 0.0073
+Epoch 39/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0071 - mean_squared_error: 0.0071
+Epoch 40/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0070 - mean_squared_error: 0.0070
+Epoch 41/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0068 - mean_squared_error: 0.0068
+Epoch 42/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0067 - mean_squared_error: 0.0067
+Epoch 43/100
+20/20 [==============================] - 0s 201us/sample - loss: 0.0065 - mean_squared_error: 0.0065
+Epoch 44/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0063 - mean_squared_error: 0.0063
+Epoch 45/100
+20/20 [==============================] - 0s 199us/sample - loss: 0.0062 - mean_squared_error: 0.0062
+Epoch 46/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0060 - mean_squared_error: 0.0060
+Epoch 47/100
+20/20 [==============================] - 0s 98us/sample - loss: 0.0059 - mean_squared_error: 0.0059
+Epoch 48/100
+20/20 [==============================] - 0s 149us/sample - loss: 0.0058 - mean_squared_error: 0.0058
+Epoch 49/100
+20/20 [==============================] - 0s 99us/sample - loss: 0.0057 - mean_squared_error: 0.0057
+Epoch 50/100
+20/20 [==============================] - 0s 155us/sample - loss: 0.0055 - mean_squared_error: 0.0055
+Epoch 51/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0054 - mean_squared_error: 0.0054
+Epoch 52/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0052 - mean_squared_error: 0.0052
+Epoch 53/100
+20/20 [==============================] - 0s 199us/sample - loss: 0.0051 - mean_squared_error: 0.0051
+Epoch 54/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0050 - mean_squared_error: 0.0050
+Epoch 55/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0049 - mean_squared_error: 0.0049
+Epoch 56/100
+20/20 [==============================] - 0s 250us/sample - loss: 0.0047 - mean_squared_error: 0.0047
+Epoch 57/100
+20/20 [==============================] - 0s 250us/sample - loss: 0.0046 - mean_squared_error: 0.0046
+Epoch 58/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0045 - mean_squared_error: 0.0045
+Epoch 59/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0044 - mean_squared_error: 0.0044
+Epoch 60/100
+20/20 [==============================] - 0s 199us/sample - loss: 0.0043 - mean_squared_error: 0.0043
+Epoch 61/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0042 - mean_squared_error: 0.0042
+Epoch 62/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0041 - mean_squared_error: 0.0041
+Epoch 63/100
+20/20 [==============================] - 0s 299us/sample - loss: 0.0040 - mean_squared_error: 0.0040
+Epoch 64/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0039 - mean_squared_error: 0.0039
+Epoch 65/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0038 - mean_squared_error: 0.0038
+Epoch 66/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0037 - mean_squared_error: 0.0037
+Epoch 67/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0036 - mean_squared_error: 0.0036
+Epoch 68/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0036 - mean_squared_error: 0.0036
+Epoch 69/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0035 - mean_squared_error: 0.0035
+Epoch 70/100
+20/20 [==============================] - 0s 249us/sample - loss: 0.0034 - mean_squared_error: 0.0034
+Epoch 71/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0033 - mean_squared_error: 0.0033
+Epoch 72/100
+20/20 [==============================] - 0s 149us/sample - loss: 0.0032 - mean_squared_error: 0.0032
+Epoch 73/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0031 - mean_squared_error: 0.0031
+Epoch 74/100
+20/20 [==============================] - 0s 200us/sample - loss: 0.0031 - mean_squared_error: 0.0031
+Epoch 75/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0030 - mean_squared_error: 0.0030
+Epoch 76/100
+20/20 [==============================] - 0s 250us/sample - loss: 0.0030 - mean_squared_error: 0.0030
+Epoch 77/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0029 - mean_squared_error: 0.0029
+Epoch 78/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0028 - mean_squared_error: 0.0028
+Epoch 79/100
+20/20 [==============================] - 0s 199us/sample - loss: 0.0027 - mean_squared_error: 0.0027
+Epoch 80/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0027 - mean_squared_error: 0.0027
+Epoch 81/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0026 - mean_squared_error: 0.0026
+Epoch 82/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0025 - mean_squared_error: 0.0025
+Epoch 83/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0025 - mean_squared_error: 0.0025
+Epoch 84/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0024 - mean_squared_error: 0.0024
+Epoch 85/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0023 - mean_squared_error: 0.0023
+Epoch 86/100
+20/20 [==============================] - 0s 250us/sample - loss: 0.0023 - mean_squared_error: 0.0023
+Epoch 87/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0022 - mean_squared_error: 0.0022
+Epoch 88/100
+20/20 [==============================] - 0s 249us/sample - loss: 0.0022 - mean_squared_error: 0.0022
+Epoch 89/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0022 - mean_squared_error: 0.0022
+Epoch 90/100
+20/20 [==============================] - 0s 50us/sample - loss: 0.0021 - mean_squared_error: 0.0021
+Epoch 91/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0021 - mean_squared_error: 0.0021
+Epoch 92/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0020 - mean_squared_error: 0.0020
+Epoch 93/100
+20/20 [==============================] - 0s 99us/sample - loss: 0.0019 - mean_squared_error: 0.0019
+Epoch 94/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0019 - mean_squared_error: 0.0019
+Epoch 95/100
+20/20 [==============================] - 0s 200us/sample - loss: 0.0018 - mean_squared_error: 0.0018
+Epoch 96/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0018 - mean_squared_error: 0.0018
+Epoch 97/100
+20/20 [==============================] - 0s 99us/sample - loss: 0.0018 - mean_squared_error: 0.0018
+Epoch 98/100
+20/20 [==============================] - 0s 150us/sample - loss: 0.0017 - mean_squared_error: 0.0017
+Epoch 99/100
+20/20 [==============================] - 0s 100us/sample - loss: 0.0017 - mean_squared_error: 0.0017
+Epoch 100/100
+20/20 [==============================] - 0s 99us/sample - loss: 0.0016 - mean_squared_error: 0.0016
+
+[[0.73319775]
+ [0.74746984]
+ [0.76106656]
+ [0.77413464]
+ [0.78667927]
+ [0.7987018 ]
+ [0.8102056 ]
+ [0.82119834]
+ [0.8316856 ]
+ [0.84167504]
+ [0.8511764 ]
+ [0.8602017 ]
+ [0.86876416]]
+ 
+[array([366598.87433052]), array([373734.92121696]), array([380533.27798843]), array([387067.31796265]), array([393339.63394165]), array([399350.91137886]), array([405102.78940201]), array([410599.17211533]), array([415842.80133247]), array([420837.52155304]), array([425588.19055557]), array([430100.85821152]), array([434382.0810318])]
