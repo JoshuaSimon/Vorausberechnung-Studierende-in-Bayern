@@ -30,11 +30,11 @@ def linear_regression (x_data, y_data):
     bx = y_mean - mx * x_mean
     by = y_mean - my * x_mean
 
-    return [mx, my, bx, by]
+    return mx, my, bx, by
 
 def linear_function(m, x, b):
     """ A linear function of one variable x 
-    with solpe m and and intercept b. 
+    with slope m and and intercept b. 
     """
     return m * x + b
 
@@ -60,7 +60,7 @@ def normalize_minmax(x, x_min, x_max, min_r, max_r):
     and minium of the total data x and do
     not need to be in x itself. 
     """
-    x_s = [(i - x_min)/(x_max - x_min) for i in x]
+    x_s = ((i - x_min)/(x_max - x_min) for i in x)
     return [i * (max_r - min_r) + min_r for i in x_s]
 
 def de_normalize_minmax(x_scale, x, x_min, x_max, min_r, max_r):
@@ -68,9 +68,8 @@ def de_normalize_minmax(x_scale, x, x_min, x_max, min_r, max_r):
     scaled vector back to its un-normalized
     form.
     """
-    x_t = [((i - min_r)/(max_r - min_r)) for i in x_scale]
-    x_inv = [(i*(x_max - x_min) + x_min) for i in x_t]
-    return x_inv
+    x_t = (((i - min_r)/(max_r - min_r)) for i in x_scale)
+    return [(i*(x_max - x_min) + x_min) for i in x_t]
 
 
 # Read the data form the input file and name the columns. 
@@ -92,8 +91,8 @@ for i in student_data_missing:
     
 
 # Convert pandas dataframe columns into numpy arrays
-all_students_vec = student_data['all'].to_numpy()
-year_vec = student_data['year'].to_numpy()
+all_students_vec = student_data["all"].to_numpy()
+year_vec = student_data["year"].to_numpy()
 
 # Fitting with linear regression
 mx, my, bx, by = linear_regression(year_vec, all_students_vec)
@@ -125,7 +124,7 @@ future_year_norm = normalize_minmax(future_year, 1990, 2050, 0, 1)
 model = keras.Sequential()
 model.add(keras.layers.Dense(1024, input_dim=1, activation="relu"))
 model.add(keras.layers.Dense(1, activation="sigmoid"))
-model.compile(optimizer='rmsprop', loss='mse', metrics=['mse'])
+model.compile(optimizer="rmsprop", loss="mse", metrics=["mse"])
 
 # Train the model
 model.fit(year_norm, all_students_norm, epochs=100) 
@@ -138,14 +137,14 @@ tf_predictions_transpose = np.array(de_normalize_minmax(tf_predictions, all_stud
 
 
 # Plot the evolution of the number of students over time.
-plt.plot(year_vec, all_students_vec, "-b", label='given data')
-plt.plot(year_vec, lin_reg_x, "-r", label='linear regression')
+plt.plot(year_vec, all_students_vec, "-b", label="given data")
+plt.plot(year_vec, lin_reg_x, "-r", label="linear regression")
 plt.plot(prediction_year, predictions, "--r", label="linear prediction")
 plt.plot(future_year, tf_predictions_transpose.flatten(), ":g", label="tensorflow")
 
-plt.title('Students at Bavarian universities since 1998')
-plt.xlabel('Year')
-plt.ylabel('Number of students')
+plt.title("Students at Bavarian universities since 1998")
+plt.xlabel("Year")
+plt.ylabel("Number of students")
 plt.legend()
 plt.show()
 
