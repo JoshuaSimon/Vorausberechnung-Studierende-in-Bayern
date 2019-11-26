@@ -71,6 +71,21 @@ def de_normalize_minmax(x_scale, x, x_min, x_max, min_r, max_r):
     x_t = (((i - min_r)/(max_r - min_r)) for i in x_scale)
     return [(i*(x_max - x_min) + x_min) for i in x_t]
 
+def split_data_train_test(data_array, ratio):
+    """ Splits a given array into to sperate
+    arrays (training and test data). The ratio
+    determines the percentage of the split. 
+
+    Example: ratio = 0.67
+    The training array includes the first 67% of the given array.
+    The test array includes the next 33% of the given array.
+    """
+    train_size = int(len(data_array) * ratio)
+    train_data = data_array[0:train_size]
+    test_data = data_array[train_size:len(data_array)]
+
+    return np.array(train_data), np.array(test_data)
+
 
 # Read the data form the input file and name the columns. 
 student_data = pd.read_csv("student_data.txt", sep=" ", header=None)
@@ -120,19 +135,52 @@ all_students_norm = normalize_minmax(all_students_vec, 0, 500000, 0, 1)
 year_norm = normalize_minmax(year_vec, 1990, 2050, 0, 1)
 future_year_norm = normalize_minmax(future_year, 1990, 2050, 0, 1)
 
+
+# Split data in training and test data
+train_x, test_x = split_data_train_test(year_norm, 0.67)
+train_y, test_y = split_data_train_test(all_students_norm, 0.67)
+
+print(np.shape(train_x))
+print(train_x)
+test = [train_x]
+
+print(test)
+print(np.shape(test))
+
+
+# reshape input to be [samples, time steps, features]
+#train_x = np.reshape(train_x, (train_x.shape[0], 1, train_x.shape[1]))
+#test_x = np.reshape(test_x, (test_x.shape[0], 1, test_x.shape[1]))
+"""
 # Setting up machine learning model with keras
-model = keras.Sequential()
-model.add(keras.layers.Dense(1024, input_dim=1, activation="relu"))
-model.add(keras.layers.Dense(1, activation="sigmoid"))
-model.compile(optimizer="rmsprop", loss="mse", metrics=["mse"])
+#model_1 = keras.Sequential()
+#model_1.add(keras.layers.Dense(1024, input_dim=1, activation="relu"))
+#model_1.add(keras.layers.Dense(1, activation="sigmoid"))
+#model_1.compile(optimizer="rmsprop", loss="mse", metrics=["mse"])
+
+# Alternative model 
+#model_2 = keras.Sequential()
+#model_2.add(LSTM(32, input_shape=(20, 1), return_sequences=False))
+#model_2.add(Dense(1))
+#model_2.compile(loss='mse', optimizer='adam')
+
+look_back = 1
+model_3 = keras.Sequential() 
+model_3.add(keras.layers.LSTM(4, input_shape=(1, look_back))) 
+model_3.add(keras.layers.Dense(1)) 
+model_3.compile(loss='mean_squared_error', optimizer='adam') 
+
 
 # Train the model
-model.fit(year_norm, all_students_norm, epochs=100) 
+#model_1.fit(year_norm, all_students_norm, epochs=100)
+#model_2.fit(year_norm, all_students_norm, batch_size = 2, epochs=100) 
+model_3.fit(train_x, train_y, epochs=100, batch_size=1, verbose=2) 
 
 # Calculate predictions
-tf_predictions = model.predict(future_year_norm)
-tf_predictions_transpose = np.array(de_normalize_minmax(tf_predictions, all_students_vec, 0, 500000, 0, 1))
-#print(tf_predictions)
+#tf_predictions_1 = model_1.predict(future_year_norm)
+#tf_predictions_2 = model_2.predict(future_year_norm)
+#tf_predictions_transpose = np.array(de_normalize_minmax(tf_predictions_1, all_students_vec, 0, 500000, 0, 1))
+#print(tf_predictions_1)
 #print(tf_predictions_transpose.flatten())
 
 
@@ -142,9 +190,9 @@ plt.plot(year_vec, lin_reg_x, "-r", label="linear regression")
 plt.plot(prediction_year, predictions, "--r", label="linear prediction")
 plt.plot(future_year, tf_predictions_transpose.flatten(), ":g", label="tensorflow")
 
-plt.title("Students at Bavarian universities since 1998")
+plt.title("New students at Bavarian universities since 1998")
 plt.xlabel("Year")
 plt.ylabel("Number of students")
 plt.legend()
 plt.show()
-
+"""
